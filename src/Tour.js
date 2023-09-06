@@ -1,23 +1,25 @@
-import React from "react";
-import Tour from "./Tour";
-const Tours = ({ tours }) => {
+import React, { useState } from "react";
+
+const Tour = ({ id, image, info, price, name }) => {
     return ( <
-        section >
+        article className = "single-tour" >
         <
-        div className = "title" >
+        img src = { image }
+        alt = { name }
+        /> <
+        footer >
         <
-        h2 > Our tours < /h2> <
-        div className = "underline" > < /div> <
+        div className = "tour-info" >
+        <
+        h4 > { name } < /h4> <
+        h4 className = "tour-price" > { price }
+        $ < /h4> <
         /div> <
-        div > {
-            tours.map((tour) => {
-                return <Tour key = { tour.id } {...tour }
-                />;
-            })
-        } <
-        /div> <
-        /section>
+        p > { info } < /p> <
+        /footer> <
+        button className = "delete-btn" > not interested < /button> <
+        /article>
     );
 };
 
-export default Tours;
+export default Tour;
